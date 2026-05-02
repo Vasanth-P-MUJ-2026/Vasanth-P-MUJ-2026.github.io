@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasanth P — Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ─── CURSOR ─── -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">VP<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">◐</span>
+      </button>
+      <a href="#" class="btn-resume" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Resume
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="home" class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal-up">
+      <span class="badge-dot"></span>
+      Open to work · Data Science Roles
+    </div>
+
+    <h1 class="hero-name reveal-up" style="--delay:0.1s">
+      <span class="name-line">Vasanth</span>
+      <span class="name-line accent-stroke">P<span class="cursor-blink">_</span></span>
+    </h1>
+
+    <p class="hero-title reveal-up" style="--delay:0.2s">
+      Data Scientist · Python · Machine Learning · SQL · Streamlit
+    </p>
+
+    <p class="hero-tagline reveal-up" style="--delay:0.3s">
+      Turning Data into Actionable Insights
+    </p>
+
+    <div class="hero-cta reveal-up" style="--delay:0.4s">
+      <a href="#projects" class="btn-primary">
+        View Projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
+    </div>
+
+    <div class="hero-stats reveal-up" style="--delay:0.5s">
+      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Projects</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="12">0</span><span class="stat-label">Certifications</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="87">0</span><span class="stat-label">Best R² %</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about" class="about section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">01 / About</span>
+      <h2 class="section-title">The Story So Far</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p class="about-lead">
+          MCA student & certified Data Scientist from <strong>GUVI–HCL</strong>, driven by a passion for turning raw data into decisions that matter.
+        </p>
+        <p>
+          My journey is anything but conventional — I spent years preparing for <strong>UPSC</strong>, developing discipline, analytical thinking, and the ability to process mountains of information. When I pivoted to Data Science, I realized those same skills were exactly what the field demands.
+        </p>
+        <p>
+          Today I build ML pipelines, craft visual stories from messy datasets, and deploy interactive apps that make insights accessible to everyone — not just engineers.
+        </p>
+        <div class="about-tags">
+          <span>Problem Solver</span>
+          <span>Data Storyteller</span>
+          <span>ML Practitioner</span>
+          <span>UPSC → DS Switcher</span>
+        </div>
+      </div>
+
+      <div class="about-card reveal-right">
+        <div class="about-card-inner">
+          <div class="about-avatar">VP</div>
+          <div class="about-info">
+            <div class="info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13.5 19.79 19.79 0 0 1 1.08 4.88a2 2 0 0 1 1.97-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 10.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 18z"/></svg>
+              <span>vasanthp@email.com</span>
+            </div>
+            <div class="info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>India</span>
+            </div>
+            <div class="info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>MCA Student · Data Scientist</span>
+            </div>
+          </div>
+          <a href="#" class="btn-resume-card" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ─── -->
+<section id="skills" class="skills section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">02 / Skills</span>
+      <h2 class="section-title">Technical Arsenal</h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-category reveal-up" style="--delay:0s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">⌨</span>
+          <h3>Programming</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span>Python</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>SQL</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal-up" style="--delay:0.1s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">📦</span>
+          <h3>Libraries</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span>Pandas / NumPy</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>Scikit-learn</span><span>82%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal-up" style="--delay:0.2s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">📊</span>
+          <h3>Visualization</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span>Matplotlib / Seaborn</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>Plotly</span><span>75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal-up" style="--delay:0.3s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🛠</span>
+          <h3>Tools</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span>Streamlit</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span>Git / GitHub</span><span>78%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal-up" style="--delay:0.4s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🧠</span>
+          <h3>ML Concepts</h3>
+        </div>
+        <div class="skill-tags">
+          <span>Machine Learning</span>
+          <span>EDA</span>
+          <span>Feature Engineering</span>
+          <span>Deep Learning</span>
+          <span>CNN</span>
+          <span>Transfer Learning</span>
+          <span>Clustering</span>
+          <span>Regression</span>
+          <span>Anomaly Detection</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal-up" style="--delay:0.5s">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🎓</span>
+          <h3>Soft Skills</h3>
+        </div>
+        <div class="skill-tags">
+          <span>Analytical Thinking</span>
+          <span>Research</span>
+          <span>Communication</span>
+          <span>Problem Solving</span>
+          <span>Self-Learning</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ─── -->
+<section id="projects" class="projects section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">03 / Projects</span>
+      <h2 class="section-title">Featured Work</h2>
+    </div>
+
+    <div class="project-filters reveal-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <button class="filter-btn" data-filter="dl">Deep Learning</button>
+      <button class="filter-btn" data-filter="viz">Visualization</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal-up" data-category="ml viz" style="--delay:0s">
+        <div class="project-number">01</div>
+        <div class="project-accent"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span class="project-tag">ML · API · Anomaly Detection</span>
+            <div class="project-score">R² = 0.87</div>
+          </div>
+          <h3 class="project-title">EcoPulse</h3>
+          <p class="project-subtitle">PM2.5 Prediction System</p>
+          <p class="project-desc">ML model ingesting real-time API data to predict PM2.5 air quality levels. Includes an anomaly detection module and a live Streamlit dashboard for environmental monitoring.</p>
+          <div class="project-stack">
+            <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>REST API</span><span>Plotly</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vasanthp" target="_blank" class="project-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="#" target="_blank" class="project-link project-link-demo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="ml" style="--delay:0.1s">
+        <div class="project-number">02</div>
+        <div class="project-accent" style="--accent-hue:280"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span class="project-tag">ML · Clustering · Recommender</span>
+          </div>
+          <h3 class="project-title">Shopper Spectrum</h3>
+          <p class="project-subtitle">Customer Segmentation Engine</p>
+          <p class="project-desc">RFM analysis combined with KMeans clustering to segment customers by behavior. Integrated a product recommendation system that personalizes suggestions per cluster.</p>
+          <div class="project-stack">
+            <span>Python</span><span>KMeans</span><span>Pandas</span><span>Seaborn</span><span>Streamlit</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vasanthp" target="_blank" class="project-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="ml viz" style="--delay:0.2s">
+        <div class="project-number">03</div>
+        <div class="project-accent" style="--accent-hue:45"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span class="project-tag">ML · Regression · Map Viz</span>
+          </div>
+          <h3 class="project-title">NYC Taxi Fare</h3>
+          <p class="project-subtitle">Fare Prediction System</p>
+          <p class="project-desc">Regression model predicting NYC taxi fares with high accuracy. Interactive Streamlit app features live route visualization on a map, letting users input pickup/dropoff for instant fare estimates.</p>
+          <div class="project-stack">
+            <span>Python</span><span>XGBoost</span><span>Streamlit</span><span>Folium</span><span>GeoPandas</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vasanthp" target="_blank" class="project-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="#" target="_blank" class="project-link project-link-demo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up" data-category="dl" style="--delay:0.3s">
+        <div class="project-number">04</div>
+        <div class="project-accent" style="--accent-hue:350"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <span class="project-tag">Deep Learning · CNN · Medical AI</span>
+          </div>
+          <h3 class="project-title">Brain Tumor</h3>
+          <p class="project-subtitle">MRI Classification System</p>
+          <p class="project-desc">Deep Learning pipeline using CNN architecture with Transfer Learning for classifying brain tumors in MRI scans. Handles multi-class classification with high clinical-grade precision.</p>
+          <div class="project-stack">
+            <span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span><span>OpenCV</span><span>Keras</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vasanthp" target="_blank" class="project-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── EDUCATION ─── -->
+<section id="education" class="education section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">04 / Education</span>
+      <h2 class="section-title">Learning Path</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2023 – Present</div>
+          <h3>Master of Computer Applications (MCA)</h3>
+          <p class="timeline-org">University · India</p>
+          <p>Pursuing advanced studies in computer science with a focus on algorithms, databases, and machine learning applications.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2023</div>
+          <h3>Data Science Certification</h3>
+          <p class="timeline-org">GUVI – HCL Technologies</p>
+          <p>Comprehensive program covering Python, ML algorithms, EDA, feature engineering, deep learning, and end-to-end project deployment.</p>
+          <div class="timeline-badge">🏆 Certified</div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2020 – 2023</div>
+          <h3>UPSC Civil Services Preparation</h3>
+          <p class="timeline-org">Self-Study · India</p>
+          <p>Developed extraordinary research skills, analytical rigor, and the ability to synthesize vast information — directly transferable to data science.</p>
+          <div class="timeline-badge">🔄 Career Pivot</div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">Ongoing</div>
+          <h3>Additional Certifications</h3>
+          <p class="timeline-org">Various Platforms</p>
+          <div class="cert-list">
+            <span>Python (HackerRank)</span>
+            <span>SQL Advanced</span>
+            <span>ML Specialization</span>
+            <span>Deep Learning AI</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact" class="contact section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-tag">05 / Contact</span>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-sub">Open to data science roles, collaborations, and interesting problems.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <a href="mailto:vasanthp@email.com" class="contact-card">
+          <div class="contact-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">vasanthp@email.com</span>
+          </div>
+        </a>
+
+        <a href="https://linkedin.com/in/vasanthp" target="_blank" class="contact-card">
+          <div class="contact-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/vasanthp</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/vasanthp" target="_blank" class="contact-card">
+          <div class="contact-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/vasanthp</span>
+          </div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal-right" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Recruiter / Collaborator" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="Job opportunity / Project idea" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Let's talk about data..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">
+          Send Message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <div class="form-success" id="formSuccess">
+          ✅ Message sent! I'll get back to you soon.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">VP<span class="dot">.</span></span>
+        <p>Turning data into decisions.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/vasanthp" target="_blank" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/vasanthp" target="_blank" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Vasanth P · Built with 💻 & data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
