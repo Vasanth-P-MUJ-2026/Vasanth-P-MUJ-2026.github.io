@@ -1,563 +1,1022 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vasanth P — Data Scientist</title>
-  <title>Vasanth P — Data Scientist</title
-                                     
-  <meta name="description" content="Vasanth P - Data Scientist portfolio showcasing machine learning, deep learning, and real-world projects.">
-  <meta name="keywords" content="Data Scientist, Machine Learning, Python, Portfolio, Streamlit, AI">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasanth P — Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,200&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f0ede6;
+    --accent: #00ff87;
+    --accent2: #ff6b35;
+    --mid: #1a1a2e;
+    --muted: #6b6b7a;
+    --line: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.25s ease, width 0.3s, height 0.3s;
+    transform: translate(-14px, -14px);
+    opacity: 0.5;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    background: rgba(10,10,15,0.7);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0,255,135,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  .hero-left { z-index: 1; }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(0,255,135,0.3);
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 200;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--paper);
+  }
+
+  .hero-title {
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+    line-height: 1.8;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 2px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--ink);
+    border: 1px solid var(--accent);
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0,255,135,0.2);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(240,237,230,0.2);
+    color: var(--paper);
+  }
+  .btn-outline:hover {
+    border-color: var(--paper);
+    transform: translateY(-2px);
+  }
+
+  /* Hero right - visual */
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-visual {
+    position: relative;
+    width: 340px;
+    height: 340px;
+  }
+
+  .visual-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,135,0.15);
+    animation: spin 20s linear infinite;
+  }
+  .visual-ring:nth-child(1) { inset: 0; }
+  .visual-ring:nth-child(2) { inset: 30px; animation-direction: reverse; animation-duration: 15s; border-color: rgba(255,107,53,0.15); }
+  .visual-ring:nth-child(3) { inset: 60px; animation-duration: 25s; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .visual-center {
+    position: absolute;
+    inset: 80px;
+    background: linear-gradient(135deg, rgba(0,255,135,0.1), rgba(255,107,53,0.1));
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,135,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .visual-stat {
+    text-align: center;
+  }
+
+  .visual-stat .num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .visual-stat .lbl {
+    font-size: 0.55rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .visual-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+  }
+
+  .visual-dot:nth-child(5) { top: 10px; right: 110px; }
+  .visual-dot:nth-child(6) { bottom: 30px; left: 50px; background: var(--accent2); box-shadow: 0 0 15px var(--accent2); }
+  .visual-dot:nth-child(7) { top: 80px; left: 10px; width: 5px; height: 5px; }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+  }
+
+  /* SKILLS */
+  .skills-section { border-top: 1px solid var(--line); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .skill-card {
+    background: var(--ink);
+    padding: 2rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,135,0.04), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .skill-card:hover { background: #0e0e16; }
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-icon {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--paper);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 2px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .skill-card:hover .tag {
+    border-color: rgba(0,255,135,0.2);
+    color: var(--paper);
+  }
+
+  /* PROJECTS */
+  .projects-section { border-top: 1px solid var(--line); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .project-card {
+    background: var(--ink);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 0.4s ease;
+  }
+
+  .project-card:hover::after { width: 100%; }
+  .project-card:hover { background: #0c0c14; }
+
+  .project-num {
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--paper);
+  }
+
+  .project-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.8;
+    flex: 1;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .metric .val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  .metric .key {
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .stack-tag {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+    background: rgba(0,255,135,0.06);
+    border: 1px solid rgba(0,255,135,0.15);
+    border-radius: 2px;
+    color: rgba(0,255,135,0.7);
+    letter-spacing: 0.05em;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: gap 0.2s;
+    margin-top: auto;
+  }
+  .project-link:hover { gap: 1rem; }
+
+  /* EDUCATION */
+  .edu-section { border-top: 1px solid var(--line); }
+
+  .edu-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+
+  .edu-item {
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .edu-item:last-child { border-bottom: none; }
+  .edu-item:hover { background: rgba(255,255,255,0.02); }
+
+  .edu-period {
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding-top: 0.2rem;
+  }
+
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .edu-inst {
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    border-top: 1px solid var(--line);
+    text-align: center;
+    max-width: 100%;
+    padding: 8rem 3rem;
+    background: linear-gradient(180deg, transparent, rgba(0,255,135,0.02));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: 'CONNECT';
+    position: absolute;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20vw;
+    color: rgba(255,255,255,0.02);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+
+  .contact-section .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-subtitle {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,255,135,0.1);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: auto; }
+    .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .contact-section { padding: 4rem 1.5rem; }
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    background-size: 150px;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+</style>
 </head>
 <body>
 
-<!-- ─── CURSOR ─── -->
 <div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="cursorTrail"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ─── NAV ─── -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#home" class="nav-logo">VP<span class="dot">.</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon">◐</span>
-      </button>
-      <a href="assets/Vasanth_Resume.pdf" class="btn-resume" download>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Resume
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </div>
+<nav>
+  <a href="#" class="nav-logo">VP<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
-<section id="home" class="hero">
-  <canvas id="heroCanvas"></canvas>
-  <div class="hero-grid-overlay"></div>
-
-  <div class="hero-content">
-    <div class="availability-badge">
-      🟢 Available for Data Science Roles
-    </div>
-    
-    <div class="hero-badge reveal-up">
-      <span class="badge-dot"></span>
-      Open to work · Data Science Roles
-    </div>
-
-    <h1 class="hero-name reveal-up" style="--delay:0.1s">
-      <span class="name-line">Vasanth</span>
-      <span class="name-line accent-stroke">P<span class="cursor-blink">_</span></span>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Available for Opportunities</div>
+    <h1 class="hero-name">
+      Vasanth<br><em>P.</em>
     </h1>
-
-    <p class="hero-title reveal-up" style="--delay:0.2s">
-      Data Scientist · Python · Machine Learning · SQL · Streamlit
+    <p class="hero-title">
+      Data Scientist crafting AI-driven solutions at the intersection of Machine Learning, Deep Learning & real-world impact. Based in Salem, Tamil Nadu.
     </p>
-    <p class="hero-tagline reveal-up" style="--delay:0.3s">
-    <p class="hero-impact reveal-up" style="--delay:0.35s">   
-      ✔ 4+ ML Projects · ✔ 0.87 R² Models · ✔ Real-world Deployments 
-    </p>
-      Building real-world ML systems for forecasting, recommendation, and AI-driven decision making.
-    </p>
-
-    <div class="hero-cta reveal-up" style="--delay:0.4s">
-      <a href="#projects" class="btn-primary">
-        View Projects
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#contact" class="btn-outline">Contact Me</a>
-    </div>
-
-    <div class="hero-stats reveal-up" style="--delay:0.5s">
-      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Projects</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num" data-target="12">0</span><span class="stat-label">Certifications</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num" data-target="87">0</span><span class="stat-label">Best R² %</span></div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="mailto:vp.data.science.intern@gmail.com" class="btn btn-outline">Get in Touch</a>
     </div>
   </div>
 
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ─── ABOUT ─── -->
-<section id="about" class="about section">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag">01 / About</span>
-      <h2 class="section-title">The Story So Far</h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text reveal-left">
-        <p class="about-lead">
-          MCA student & certified Data Scientist from <strong>GUVI–HCL</strong>, driven by a passion for turning raw data into decisions that matter.
-        </p>
-        <p>
-          My journey is anything but conventional — I spent years preparing for <strong>UPSC</strong>, developing discipline, analytical thinking, and the ability to process mountains of information. When I pivoted to Data Science, I realized those same skills were exactly what the field demands.
-        </p>
-        <p>
-          Today I build ML pipelines, craft visual stories from messy datasets, and deploy interactive apps that make insights accessible to everyone — not just engineers.
-        </p>
-        <div class="about-tags">
-          <span>Problem Solver</span>
-          <span>Data Storyteller</span>
-          <span>ML Practitioner</span>
-          <span>UPSC → DS Switcher</span>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="visual-ring"></div>
+      <div class="visual-ring"></div>
+      <div class="visual-ring"></div>
+      <div class="visual-center">
+        <div class="visual-stat">
+          <div class="num">93%</div>
+          <div class="lbl">Model Accuracy</div>
+        </div>
+        <div style="width:40px;height:1px;background:rgba(255,255,255,0.1);margin:0.5rem 0;"></div>
+        <div class="visual-stat">
+          <div class="num">3+</div>
+          <div class="lbl">Live Projects</div>
         </div>
       </div>
-
-      <div class="about-card reveal-right">
-        <div class="about-card-inner">
-          <div class="about-avatar">VP</div>
-          <div class="about-info">
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13.5 19.79 19.79 0 0 1 1.08 4.88a2 2 0 0 1 1.97-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 10.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 18z"/></svg>
-              <span>vp.data.science.intern@gmail.com</span>
-            </div>
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>India</span>
-            </div>
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              <span>MCA Student · Data Scientist</span>
-            </div>
-          </div>
-          <a href="assets/Vasanth_Resume.pdf" class="btn-resume-card" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Resume
-          </a>
-        </div>
-      </div>
+      <div class="visual-dot"></div>
+      <div class="visual-dot"></div>
+      <div class="visual-dot"></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ─── SKILLS ─── -->
-<section id="skills" class="skills section">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag">02 / Skills</span>
-      <h2 class="section-title">Technical Arsenal</h2>
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Technical<br>Toolkit</h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <span class="skill-icon">⚡</span>
+      <div class="skill-name">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="tag">Linear Regression</span>
+        <span class="tag">Logistic Regression</span>
+        <span class="tag">Decision Tree</span>
+        <span class="tag">Random Forest</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">K-Means</span>
+      </div>
     </div>
-
-    <div class="skills-grid">
-
-      <div class="skill-category reveal-up" style="--delay:0s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">⌨</span>
-          <h3>Programming</h3>
-        </div>
-        <div class="skill-items">
-          <div class="skill-item">
-            <div class="skill-top"><span>Python</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-top"><span>SQL</span><span>80%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-          </div>
-        </div>
+    <div class="skill-card">
+      <span class="skill-icon">🧠</span>
+      <div class="skill-name">Deep Learning</div>
+      <div class="skill-tags">
+        <span class="tag">ANN</span>
+        <span class="tag">CNN</span>
+        <span class="tag">RNN</span>
+        <span class="tag">Transfer Learning</span>
+        <span class="tag">ResNet50</span>
+        <span class="tag">MobileNet</span>
       </div>
-
-      <div class="skill-category reveal-up" style="--delay:0.1s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">📦</span>
-          <h3>Libraries</h3>
-        </div>
-        <div class="skill-items">
-          <div class="skill-item">
-            <div class="skill-top"><span>Pandas / NumPy</span><span>88%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-top"><span>Scikit-learn</span><span>82%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-          </div>
-        </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">👁️</span>
+      <div class="skill-name">Computer Vision</div>
+      <div class="skill-tags">
+        <span class="tag">Image Classification</span>
+        <span class="tag">Object Detection</span>
+        <span class="tag">Segmentation</span>
+        <span class="tag">OpenCV</span>
       </div>
-
-      <div class="skill-category reveal-up" style="--delay:0.2s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">📊</span>
-          <h3>Visualization</h3>
-        </div>
-        <div class="skill-items">
-          <div class="skill-item">
-            <div class="skill-top"><span>Matplotlib / Seaborn</span><span>85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-top"><span>Plotly</span><span>75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-          </div>
-        </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">💬</span>
+      <div class="skill-name">NLP & LLMs</div>
+      <div class="skill-tags">
+        <span class="tag">BERT</span>
+        <span class="tag">DistilBERT</span>
+        <span class="tag">GPT-4</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Fine-tuning (LoRA)</span>
+        <span class="tag">NER</span>
       </div>
-
-      <div class="skill-category reveal-up" style="--delay:0.3s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">🛠</span>
-          <h3>Tools</h3>
-        </div>
-        <div class="skill-items">
-          <div class="skill-item">
-            <div class="skill-top"><span>Streamlit</span><span>85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-top"><span>Git / GitHub</span><span>78%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-          </div>
-        </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🛠️</span>
+      <div class="skill-name">Frameworks & Tools</div>
+      <div class="skill-tags">
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">Keras</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Pandas</span>
       </div>
-
-      <div class="skill-category reveal-up" style="--delay:0.4s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">🧠</span>
-          <h3>ML Concepts</h3>
-        </div>
-        <div class="skill-tags">
-          <span>Machine Learning</span>
-          <span>EDA</span>
-          <span>Feature Engineering</span>
-          <span>Deep Learning</span>
-          <span>CNN</span>
-          <span>Transfer Learning</span>
-          <span>Clustering</span>
-          <span>Regression</span>
-          <span>Anomaly Detection</span>
-        </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">☁️</span>
+      <div class="skill-name">Cloud & Data</div>
+      <div class="skill-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Python</span>
+        <span class="tag">Data Engineering</span>
+        <span class="tag">API Integration</span>
       </div>
-
-      <div class="skill-category reveal-up" style="--delay:0.5s">
-        <div class="skill-cat-header">
-          <span class="skill-cat-icon">🎓</span>
-          <h3>Soft Skills</h3>
-        </div>
-        <div class="skill-tags">
-          <span>Analytical Thinking</span>
-          <span>Research</span>
-          <span>Communication</span>
-          <span>Problem Solving</span>
-          <span>Self-Learning</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ─── -->
-<section id="projects" class="projects section">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag">03 / Projects</span>
-      <h2 class="section-title">Featured Work</h2>
-    </div>
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-label">Work</div>
+  <h2 class="section-title">Featured<br>Projects</h2>
+  <div class="projects-grid reveal">
 
-    <div class="project-filters reveal-up">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ml">Machine Learning</button>
-      <button class="filter-btn" data-filter="dl">Deep Learning</button>
-      <button class="filter-btn" data-filter="viz">Visualization</button>
-    </div>
-
-    <div class="projects-grid">
-
-      <div class="project-card reveal-up" data-category="ml viz" style="--delay:0s">
-        <div class="project-number">01</div>
-        <div class="project-accent"></div>
-        <div class="project-content">
-          <div class="project-meta">
-            <span class="project-tag">ML · API · Anomaly Detection</span>
-            <div class="project-score">R² = 0.87</div>
-          </div>
-          <h3 class="project-title">EcoPulse <span class="project-badge">⭐ Featured</span></h3>
-          <p class="project-subtitle">PM2.5 Prediction System</p>
-          <p class="project-desc">ML model ingesting real-time API data to predict PM2.5 air quality levels. Includes an anomaly detection module and a live Streamlit dashboard for environmental monitoring.</p>
-          <p class="project-impact">
-            <strong>Impact:</strong> MAE 10.2 · R² 0.87 · 89% reliability
-          </p>
-          <div class="project-stack">
-            <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>REST API</span><span>Plotly</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" class="project-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <a href="#" target="_blank" class="project-link project-link-demo">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Live Demo
-            </a>
-          </div>
+    <div class="project-card featured">
+      <div class="project-num">01 — FEATURED</div>
+      <div class="project-title">EcoPulse – PM2.5 Nowcasting<br>for Smarter Cities</div>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="val">94%</span>
+          <span class="key">Data Coverage</span>
+        </div>
+        <div class="metric">
+          <span class="val">18%</span>
+          <span class="key">Reliability Boost</span>
+        </div>
+        <div class="metric">
+          <span class="val">0.87</span>
+          <span class="key">R² Score</span>
+        </div>
+        <div class="metric">
+          <span class="val">10.2</span>
+          <span class="key">MAE (µg/m³)</span>
         </div>
       </div>
-
-      <div class="project-card reveal-up" data-category="ml" style="--delay:0.1s">
-        <div class="project-number">02</div>
-        <div class="project-accent" style="--accent-hue:280"></div>
-        <div class="project-content">
-          <div class="project-meta">
-            <span class="project-tag">ML · Clustering · Recommender</span>
-          </div>
-          <h3 class="project-title">Shopper Spectrum</h3>
-          <p class="project-subtitle">Customer Segmentation Engine</p>
-          <p class="project-desc">RFM analysis combined with KMeans clustering to segment customers by behavior. Integrated a product recommendation system that personalizes suggestions per cluster.</p>
-          <div class="project-stack">
-            <span>Python</span><span>KMeans</span><span>Pandas</span><span>Seaborn</span><span>Streamlit</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" class="project-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up" data-category="ml viz" style="--delay:0.2s">
-        <div class="project-number">03</div>
-        <div class="project-accent" style="--accent-hue:45"></div>
-        <div class="project-content">
-          <div class="project-meta">
-            <span class="project-tag">ML · Regression · Map Viz</span>
-          </div>
-          <h3 class="project-title">NYC Taxi Fare</h3>
-          <p class="project-subtitle">Fare Prediction System</p>
-          <p class="project-desc">Regression model predicting NYC taxi fares with high accuracy. Interactive Streamlit app features live route visualization on a map, letting users input pickup/dropoff for instant fare estimates.</p>
-          <div class="project-stack">
-            <span>Python</span><span>XGBoost</span><span>Streamlit</span><span>Folium</span><span>GeoPandas</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" class="project-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <a href="#" target="_blank" class="project-link project-link-demo">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up" data-category="dl" style="--delay:0.3s">
-        <div class="project-number">04</div>
-        <div class="project-accent" style="--accent-hue:350"></div>
-        <div class="project-content">
-          <div class="project-meta">
-            <span class="project-tag">Deep Learning · CNN · Medical AI</span>
-          </div>
-          <h3 class="project-title">Brain Tumor</h3>
-          <p class="project-subtitle">MRI Classification System</p>
-          <p class="project-desc">Deep Learning pipeline using CNN architecture with Transfer Learning for classifying brain tumors in MRI scans. Handles multi-class classification with high clinical-grade precision.</p>
-          <div class="project-stack">
-            <span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span><span>OpenCV</span><span>Keras</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" class="project-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── EDUCATION ─── -->
-<section id="education" class="education section">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag">04 / Education</span>
-      <h2 class="section-title">Learning Path</h2>
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item reveal-left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-date">2023 – Present</div>
-          <h3>Master of Computer Applications (MCA)</h3>
-          <p class="timeline-org">University · India</p>
-          <p>Pursuing advanced studies in computer science with a focus on algorithms, databases, and machine learning applications.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-date">2023</div>
-          <h3>Data Science Certification</h3>
-          <p class="timeline-org">GUVI – HCL Technologies</p>
-          <p>Comprehensive program covering Python, ML algorithms, EDA, feature engineering, deep learning, and end-to-end project deployment.</p>
-          <div class="timeline-badge">🏆 Certified</div>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-date">2020 – 2023</div>
-          <h3>UPSC Civil Services Preparation</h3>
-          <p class="timeline-org">Self-Study · India</p>
-          <p>Developed extraordinary research skills, analytical rigor, and the ability to synthesize vast information — directly transferable to data science.</p>
-          <div class="timeline-badge">🔄 Career Pivot</div>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-date">Ongoing</div>
-          <h3>Additional Certifications</h3>
-          <p class="timeline-org">Various Platforms</p>
-          <div class="cert-list">
-            <span>Python (HackerRank)</span>
-            <span>SQL Advanced</span>
-            <span>ML Specialization</span>
-            <span>Deep Learning AI</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ─── -->
-<section id="contact" class="contact section">
-  <div class="container">
-    <div class="section-header reveal-up">
-      <span class="section-tag">05 / Contact</span>
-      <h2 class="section-title">Let's Connect</h2>
-      <p class="section-sub">Open to data science roles, collaborations, and interesting problems.</p>
-      <p class="contact-cta">
-        Open to Data Scientist / Analyst roles · Immediate joiner
+      <p class="project-desc">
+        AI-driven analytics system to nowcast and forecast PM2.5 air quality across Indian cities using real-time data. Built an end-to-end ML pipeline integrating OpenAQ and Open-Meteo APIs. Deployed an interactive Streamlit dashboard with city-wise insights and anomaly alerts.
       </p>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Machine Learning</span>
+        <span class="stack-tag">API Integration</span>
+        <span class="stack-tag">Streamlit</span>
+        <span class="stack-tag">Time Series</span>
+        <span class="stack-tag">Feature Engineering</span>
+      </div>
+      <a href="#" class="project-link">View Live App →</a>
     </div>
 
-    <div class="contact-grid">
-      <div class="contact-info reveal-left">
-        <a href="mailto:vp.data.science.intern@gmail.com" class="contact-card">
-          <div class="contact-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <span class="contact-label">Email</span>
-            <span class="contact-value">vp.data.science.intern@gmail.com</span>
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/vasanth-prakasam-a490b0334/" target="_blank" class="contact-card">
-          <div class="contact-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <div>
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">linkedin.com/in/vasanthp</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" class="contact-card">
-          <div class="contact-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </div>
-          <div>
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">github.com/vasanthp</span>
-          </div>
-        </a>
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Brain Tumor Classification<br>using Deep Learning</div>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="val">93%</span>
+          <span class="key">Accuracy</span>
+        </div>
+        <div class="metric">
+          <span class="val">7K+</span>
+          <span class="key">MRI Scans</span>
+        </div>
+        <div class="metric">
+          <span class="val">18%</span>
+          <span class="key">Misclassification ↓</span>
+        </div>
       </div>
+      <p class="project-desc">
+        AI-powered diagnostic system for MRI-based brain tumor classification. Built multi-architecture CNN pipeline with ResNet50 and MobileNet, with augmented data preprocessing across 7,000+ scans.
+      </p>
+      <div class="project-stack">
+        <span class="stack-tag">TensorFlow</span>
+        <span class="stack-tag">Keras</span>
+        <span class="stack-tag">Transfer Learning</span>
+        <span class="stack-tag">CNN</span>
+        <span class="stack-tag">Streamlit</span>
+      </div>
+      <a href="#" class="project-link">View Project →</a>
+    </div>
 
-      <form class="contact-form reveal-right" id="contactForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="Recruiter / Collaborator" required />
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">Shopper Spectrum<br>E-Commerce Intelligence</div>
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="val">22%</span>
+          <span class="key">Relevance Boost</span>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@company.com" required />
+        <div class="metric">
+          <span class="val">RFM</span>
+          <span class="key">Analysis Method</span>
         </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="Job opportunity / Project idea" />
+      </div>
+      <p class="project-desc">
+        AI-based customer segmentation engine analyzing purchase behavior with K-Means clustering and collaborative filtering for personalized product recommendations in e-commerce.
+      </p>
+      <div class="project-stack">
+        <span class="stack-tag">K-Means</span>
+        <span class="stack-tag">Collaborative Filtering</span>
+        <span class="stack-tag">RFM Analysis</span>
+        <span class="stack-tag">Scikit-learn</span>
+        <span class="stack-tag">Streamlit</span>
+      </div>
+      <a href="#" class="project-link">View Project →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+  <div class="section-label">Background</div>
+  <h2 class="section-title">Education &<br>Certifications</h2>
+  <div class="edu-timeline reveal">
+    <div class="edu-item">
+      <div class="edu-period">Dec 2025 — Present</div>
+      <div>
+        <div class="edu-degree">Master of Computer Application</div>
+        <div class="edu-inst">Manipal University of Jaipur · Salem, Tamil Nadu</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-period">Oct 2024 — Oct 2025</div>
+      <div>
+        <div class="edu-degree">IIT-M Advanced Programming Professional<br>& Master Data Science</div>
+        <div class="edu-inst">IIT Madras · GUVI · HCL · Salem</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-period">Jun 2016 — May 2019</div>
+      <div>
+        <div class="edu-degree">Bachelor of Arts in History</div>
+        <div class="edu-inst">Bharathidasan University · Trichy, Tamil Nadu</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-period">Certificates</div>
+      <div>
+        <div class="edu-degree" style="font-size:0.85rem; margin-bottom:0.75rem;">Industry Certifications</div>
+        <div class="skill-tags">
+          <span class="tag">Master Data Science Program</span>
+          <span class="tag">Python Zero to Hero</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Data Analysis with Pandas</span>
+          <span class="tag">Probability & Statistics</span>
+          <span class="tag">Intro to Machine Learning</span>
+          <span class="tag">Deep Learning Fundamentals</span>
         </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="4" placeholder="Let's talk about data..." required></textarea>
-        </div>
-        <button type="submit" class="btn-primary form-submit">
-          Send Message
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-        <div class="form-success" id="formSuccess">
-          ✅ Message sent! I'll get back to you soon.
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="nav-logo">VP<span class="dot">.</span></span>
-        <p>Turning data into decisions.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="https://github.com/Vasanth-P-MUJ-2026" target="_blank" aria-label="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/vasanth-prakasam-a490b0334/" target="_blank" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Vasanth P · Built with 💻 & data.</p>
-    </div>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label" style="justify-content:center;">Let's Talk</div>
+  <h2 class="section-title">Open to<br><em style="font-family:'Fraunces',serif;font-style:italic;font-weight:200;color:var(--accent)">New Roles</em></h2>
+  <p class="contact-subtitle">Currently seeking Data Science / ML Engineer internships & full-time roles.</p>
+  <div class="contact-links">
+    <a href="mailto:vp.data.science.intern@gmail.com" class="contact-link">
+      ✉ vp.data.science.intern@gmail.com
+    </a>
+    <a href="tel:+919952113091" class="contact-link">
+      ☎ +91 99521 13091
+    </a>
+    <a href="https://linkedin.com" class="contact-link" target="_blank">
+      ⬡ LinkedIn
+    </a>
+    <a href="https://github.com" class="contact-link" target="_blank">
+      ⌥ GitHub
+    </a>
   </div>
+</section>
+
+<footer>
+  <span>© 2026 Vasanth P — Data Scientist</span>
+  <span>Salem, Tamil Nadu, India</span>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+    ring.style.transform = `translate(${mx - 20}px, ${my - 20}px)`;
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger skill cards
+  document.querySelectorAll('.skill-card, .project-card, .edu-item').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.05}s`;
+  });
+
+  // Nav active highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+    });
+  });
+</script>
 </body>
 </html>
