@@ -257,8 +257,9 @@
     background: linear-gradient(135deg, rgba(201,162,39,0.06), rgba(74,155,150,0.06));
     display: flex; align-items: center; justify-content: center;
   }
-  .tile-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; }
-  .tile-banner .fallback-icon { font-size: 2.2rem; opacity: 0.5; }
+  .tile-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.3s, transform 0.4s; }
+  .tile:hover .tile-banner img { transform: scale(1.03); opacity: 1; }
+  .tile-banner .fallback-icon { font-size: 2.2rem; opacity: 0.5; display: none; }
 
   .tile-body { padding: 1.6rem; display: flex; flex-direction: column; gap: 0.9rem; flex: 1; }
   .tile-file { font-size: 0.58rem; color: var(--teal); letter-spacing: 0.16em; }
@@ -496,7 +497,7 @@
 
     <div class="tile-grid featured-grid reveal" style="margin-bottom: 1.5px;">
       <div class="tile featured">
-        <div class="tile-banner"><span class="fallback-icon">🌆</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/EcoPulse-PM2.5-Nowcasting-for-Smarter-Cities" alt="Vasanth-P-MUJ-2026/EcoPulse-PM2.5-Nowcasting-for-Smarter-Cities" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🌆</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 001 — CAPSTONE</div>
           <div class="tile-title">EcoPulse — PM2.5 Nowcasting for Smarter Cities</div>
@@ -520,7 +521,7 @@
 
     <div class="tile-grid reveal">
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🛍️</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/Project_3-Shopper_Spectrum_Segementation_and_recommendation" alt="Vasanth-P-MUJ-2026/Project_3-Shopper_Spectrum_Segementation_and_recommendation" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🛍️</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 002</div>
           <div class="tile-title">Shopper Spectrum — Segmentation</div>
@@ -535,7 +536,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🚖</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/Project--TripFare-Predicting-Urban-Taxi-Fare-with-Machine-Learning" alt="Vasanth-P-MUJ-2026/Project--TripFare-Predicting-Urban-Taxi-Fare-with-Machine-Learning" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🚖</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 003</div>
           <div class="tile-title">FarePilot — Urban Taxi Fare Prediction</div>
@@ -546,7 +547,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🥗</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/VasanthPrakasam/Project-2-Nutrition-Paradox-A-Global-View-on-Obesity-and-Malnutrition" alt="VasanthPrakasam/Project-2-Nutrition-Paradox-A-Global-View-on-Obesity-and-Malnutrition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🥗</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 004</div>
           <div class="tile-title">Nutrition Paradox — A Global View</div>
@@ -557,7 +558,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🌌</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/VasanthPrakasam/Nasa-NEO-Data-Tracking-Insights-Dashboard" alt="VasanthPrakasam/Nasa-NEO-Data-Tracking-Insights-Dashboard" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🌌</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 005</div>
           <div class="tile-title">NASA NEO Tracking Dashboard</div>
@@ -568,7 +569,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🩺</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/ML--HyperParameter_tuning_using_Diabetes_Prediction" alt="Vasanth-P-MUJ-2026/ML--HyperParameter_tuning_using_Diabetes_Prediction" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🩺</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 006</div>
           <div class="tile-title">Hyperparameter Tuning — Diabetes Prediction</div>
@@ -597,7 +598,7 @@
 
     <div class="tile-grid reveal">
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🧠</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/DL-P5---Building_a_Brain_Tumor_Detector_using_MRI_Images" alt="Vasanth-P-MUJ-2026/DL-P5---Building_a_Brain_Tumor_Detector_using_MRI_Images" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🧠</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 007</div>
           <div class="tile-title">Brain Tumor Detector — MRI Images</div>
@@ -612,7 +613,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">🔢</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/Tensorflow-Custom-Neural-Network-MNIST--Case_Study" alt="Vasanth-P-MUJ-2026/Tensorflow-Custom-Neural-Network-MNIST--Case_Study" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">🔢</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 008</div>
           <div class="tile-title">Custom Neural Network — MNIST</div>
@@ -623,7 +624,7 @@
       </div>
 
       <div class="tile">
-        <div class="tile-banner"><span class="fallback-icon">⛽</span></div>
+        <div class="tile-banner"><img src="https://opengraph.githubassets.com/1/Vasanth-P-MUJ-2026/deep-learning-mpg-estimator" alt="Vasanth-P-MUJ-2026/deep-learning-mpg-estimator" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="fallback-icon">⛽</span></div>
         <div class="tile-body">
           <div class="tile-file">FILE NO. 009</div>
           <div class="tile-title">Deep Learning MPG Estimator</div>
